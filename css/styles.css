@@ -1028,6 +1028,10 @@ footer {
     .hero {
         padding: 6rem 1rem 4rem;
         min-height: auto;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
+        background-position: center;
+        background-size: cover;
+        background-attachment: scroll;
     }
 
     .hero-content {
@@ -1080,114 +1084,72 @@ footer {
     }
 
     /* 模态框适配 */
+    .modal {
+        padding: 1rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
     .modal-content {
-        width: 95%;
-        margin: 1rem;
+        width: 90%;
+        max-width: none;
+        margin: 1rem auto;
         padding: 1.5rem;
-        max-height: 90vh;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+        transform: none;
+        top: 0;
+        left: 0;
+    }
+
+    .modal.active {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        overflow-y: scroll;
+    }
+
+    .close-modal {
+        position: sticky;
+        top: 0.5rem;
+        right: 0.5rem;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        padding: 0.5rem;
     }
 
     .product-details {
-        padding: 1rem 0;
+        padding: 0.5rem;
+        overflow-y: auto;
+    }
+
+    .product-specs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .product-specs table {
+        min-width: 100%;
         font-size: 0.9rem;
+    }
+}
+
+/* 小屏幕手机额外优化 */
+@media (max-width: 375px) {
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .product-details h3 {
+        font-size: 1.3rem;
     }
 
     .product-specs th,
     .product-specs td {
-        padding: 0.8rem;
-    }
-
-    .product-applications ul,
-    .product-advantages ul {
-        grid-template-columns: 1fr;
-    }
-
-    /* 联系方式适配 */
-    .contact {
-        padding: 3rem 1rem;
-    }
-
-    .contact h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .contact-container {
-        padding: 0;
-    }
-
-    .contact-info {
-        padding: 1.5rem;
-    }
-
-    .info-group {
-        margin-bottom: 2rem;
-    }
-
-    .info-group h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-    }
-
-    .phone-numbers {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .phone-item,
-    .email,
-    address {
-        padding: 1rem;
-        font-size: 0.9rem;
-    }
-
-    .phone-item i,
-    .email i,
-    address i {
-        font-size: 1.1rem;
-        margin-right: 0.8rem;
-    }
-
-    address span {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-}
-
-/* 小屏幕手机适配 */
-@media (max-width: 375px) {
-    .company-name {
-        font-size: 2rem;
-    }
-
-    .tagline {
-        font-size: 1rem;
-    }
-
-    .product-intro {
-        font-size: 0.9rem;
-    }
-
-    .product-card {
-        margin: 0 0.5rem;
-        padding: 1rem;
-    }
-
-    .product-image {
-        height: 180px;
-        margin: -1rem -1rem 0.8rem;
-    }
-
-    .contact-info {
-        padding: 1rem;
-    }
-
-    .phone-item span,
-    .email span,
-    address span {
+        padding: 0.5rem;
         font-size: 0.85rem;
     }
 }
