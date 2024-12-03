@@ -734,142 +734,158 @@ footer {
 }
 
 .modal-content {
-    background-color: #1a1a1a;
-    padding: 2rem;
-    border-radius: 10px;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 15px;
     position: relative;
     width: 90%;
     max-width: 800px;
     max-height: 90vh;
     overflow-y: auto;
     margin: 2rem auto;
-    color: #fff;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #333;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .close-modal {
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    right: 1.5rem;
+    top: 1.5rem;
     font-size: 2rem;
-    color: #fff;
+    color: #666;
     cursor: pointer;
-    z-index: 1001;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
 }
 
 .close-modal:hover {
-    background: rgba(212, 175, 55, 0.2);
+    background: #e0e0e0;
+    color: #333;
 }
 
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-
-    .close-modal {
-        right: 0.5rem;
-        top: 0.5rem;
-        font-size: 1.5rem;
-        width: 35px;
-        height: 35px;
-    }
-}
-
-/* 产品详情样式 */
 .product-details {
-    display: none;
+    padding: 0.5rem;
+    overflow-y: auto;
 }
 
 .product-details h2 {
-    color: #333;
-    margin-bottom: 2rem;
+    color: #12181B;
     font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #D4AF37;
+    padding-bottom: 1rem;
 }
 
 .product-details h3 {
-    color: #007AFF;
-    margin: 1.5rem 0 1rem;
+    color: #12181B;
     font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
 }
 
-/* 规格表格样式 */
 .product-specs table {
     width: 100%;
     border-collapse: collapse;
     margin: 1rem 0;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
 }
 
 .product-specs th,
 .product-specs td {
-    padding: 12px;
+    padding: 1rem;
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .product-specs th {
-    background: #f8f9fa;
-    color: #333;
-    font-weight: 500;
-    width: 30%;
+    background: #f5f5f5;
+    color: #12181B;
+    font-weight: bold;
 }
 
-/* 应用领域和产品优势列表 */
+.product-specs td {
+    color: #666;
+}
+
+.product-applications,
+.product-advantages {
+    margin: 2rem 0;
+}
+
+.product-applications h3,
+.product-advantages h3 {
+    color: #12181B;
+    margin-bottom: 1rem;
+}
+
 .product-applications ul,
 .product-advantages ul {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
 }
 
 .product-applications li,
 .product-advantages li {
-    background: #f8f9fa;
+    background: #f8f8f8;
     padding: 1rem;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    color: #666;
+    border: 1px solid #e0e0e0;
 }
 
 .product-applications li:hover,
 .product-advantages li:hover {
-    background: #e9ecef;
-    transform: translateX(5px);
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 }
 
-.product-applications i,
-.product-advantages i {
-    color: #007AFF;
-    margin-right: 1rem;
-    font-size: 1.2rem;
-}
-
-/* 响应式调整 */
 @media (max-width: 768px) {
     .modal-content {
-        width: 95%;
-        margin: 2% auto;
-        padding: 1rem;
+        padding: 1.5rem;
+        margin: 1rem;
     }
 
-    .product-applications ul,
-    .product-advantages ul {
-        grid-template-columns: 1fr;
+    .product-details h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
 
-    .product-specs th {
-        width: 40%;
+    .product-details h3 {
+        font-size: 1.3rem;
+    }
+
+    .product-specs th,
+    .product-specs td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .product-applications li,
+    .product-advantages li {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .close-modal {
+        right: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -1166,125 +1182,5 @@ footer {
     .product-specs td {
         padding: 0.5rem;
         font-size: 0.85rem;
-    }
-}
-
-/* 模态框样式优化 */
-.modal-content {
-    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
-    padding: 2rem;
-    border-radius: 10px;
-    position: relative;
-    width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
-    overflow-y: auto;
-    margin: 2rem auto;
-    color: #fff;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.product-details h2 {
-    color: #D4AF37;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-    padding-bottom: 1rem;
-}
-
-.product-details h3 {
-    color: #FFD700;
-    font-size: 1.5rem;
-    margin: 1.5rem 0 1rem;
-}
-
-.product-specs table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-}
-
-.product-specs th,
-.product-specs td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.product-specs th {
-    background: rgba(212, 175, 55, 0.1);
-    color: #FFD700;
-    font-weight: bold;
-}
-
-.product-specs td {
-    color: #E0E0E0;
-}
-
-.product-applications,
-.product-advantages {
-    margin: 2rem 0;
-}
-
-.product-applications h3,
-.product-advantages h3 {
-    color: #FFD700;
-    margin-bottom: 1rem;
-}
-
-.product-applications ul,
-.product-advantages ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.product-applications li,
-.product-advantages li {
-    background: rgba(212, 175, 55, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    color: #E0E0E0;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.product-applications li:hover,
-.product-advantages li:hover {
-    background: rgba(212, 175, 55, 0.15);
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 1.5rem;
-        margin: 1rem;
-    }
-
-    .product-details h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .product-details h3 {
-        font-size: 1.3rem;
-    }
-
-    .product-specs th,
-    .product-specs td {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    .product-applications li,
-    .product-advantages li {
-        padding: 0.8rem;
-        font-size: 0.9rem;
     }
 }
