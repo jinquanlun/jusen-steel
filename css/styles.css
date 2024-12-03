@@ -322,3 +322,159 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+/* 产品详情按钮 */
+.view-details {
+    background: #007AFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.view-details:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 20px;
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* 产品详情样式 */
+.product-details {
+    display: none;
+}
+
+.product-details h2 {
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.product-details h3 {
+    color: #007AFF;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+/* 规格表格样式 */
+.product-specs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.product-specs th,
+.product-specs td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.product-specs th {
+    background: #f8f9fa;
+    color: #333;
+    font-weight: 500;
+    width: 30%;
+}
+
+/* 应用领域和产品优势列表 */
+.product-applications ul,
+.product-advantages ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.product-applications li,
+.product-advantages li {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.product-applications li:hover,
+.product-advantages li:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.product-applications i,
+.product-advantages i {
+    color: #007AFF;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 2% auto;
+        padding: 1rem;
+    }
+
+    .product-applications ul,
+    .product-advantages ul {
+        grid-template-columns: 1fr;
+    }
+
+    .product-specs th {
+        width: 40%;
+    }
+}
