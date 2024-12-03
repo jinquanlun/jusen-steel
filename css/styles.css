@@ -173,24 +173,17 @@ body {
 /* CTA按钮样式 */
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    background: linear-gradient(120deg, #D4AF37, #FFD700);
-    color: #12181B;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #D4AF37, #FFD700);
+    color: #000;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 5px;
     font-weight: bold;
+    margin-top: 2rem;
     transition: all 0.3s ease;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
-    background: linear-gradient(120deg, #FFD700, #D4AF37);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* 产品部分 */
@@ -729,45 +722,66 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     overflow-y: auto;
 }
 
-.modal-content {
-    background: white;
-    margin: 5% auto;
-    padding: 2rem;
-    width: 80%;
-    max-width: 900px;
-    border-radius: 20px;
-    position: relative;
-    animation: modalFadeIn 0.3s ease;
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 2rem auto;
+    color: #fff;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .close-modal {
     position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 28px;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    color: #fff;
     cursor: pointer;
-    color: #666;
-    transition: color 0.3s;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
 }
 
 .close-modal:hover {
-    color: #000;
+    background: rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .close-modal {
+        right: 0.5rem;
+        top: 0.5rem;
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
 }
 
 /* 产品详情样式 */

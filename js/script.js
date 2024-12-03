@@ -21,12 +21,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// 文字动画
+document.addEventListener('DOMContentLoaded', function() {
+    const text = document.querySelector('.text-slide');
+    if (text) {
+        text.style.opacity = '1';
+        text.style.transform = 'translateY(0)';
+    }
+});
+
 // 产品详情模态框功能
 function openProductModal(productType) {
     const modal = document.getElementById('productModal');
-    const allDetails = document.querySelectorAll('.product-details');
-    
+    if (!modal) return;
+
     // 隐藏所有详情
+    const allDetails = document.querySelectorAll('.product-details');
     allDetails.forEach(detail => detail.style.display = 'none');
     
     // 显示对应产品的详情
@@ -37,43 +47,38 @@ function openProductModal(productType) {
     
     // 显示模态框
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // 防止背景滚动
+    document.body.style.overflow = 'hidden';
 }
 
 // 关闭模态框
 function closeModal() {
     const modal = document.getElementById('productModal');
+    if (!modal) return;
+
     modal.classList.remove('active');
-    document.body.style.overflow = ''; // 恢复背景滚动
+    document.body.style.overflow = '';
 }
 
-// 点击模态框外部关闭
+// 初始化事件监听
 document.addEventListener('DOMContentLoaded', function() {
     // 为所有产品卡片添加点击事件
     const productCards = document.querySelectorAll('.product-card');
     productCards.forEach(card => {
-        card.addEventListener('click', function(e) {
+        card.addEventListener('click', function() {
             const productType = this.getAttribute('data-product-type');
             if (productType) {
                 openProductModal(productType);
             }
         });
-        
-        // 防止触摸设备的双击缩放
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-        }, false);
     });
 
     // 关闭按钮事件
     const closeBtn = document.querySelector('.close-modal');
     if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-        // 防止触摸设备的双击缩放
-        closeBtn.addEventListener('touchend', function(e) {
+        closeBtn.addEventListener('click', function(e) {
             e.preventDefault();
             closeModal();
-        }, false);
+        });
     }
 
     // 点击模态框外部关闭
@@ -84,20 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeModal();
             }
         });
-        
-        // 防止触摸设备的双击缩放
-        modal.addEventListener('touchend', function(e) {
-            if (e.target === this) {
-                e.preventDefault();
-                closeModal();
-            }
-        }, false);
     }
 });
 
-// ESC键关闭模态框
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && document.getElementById('productModal').classList.contains('active')) {
+// ESC 键关闭模态框
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
         closeModal();
     }
 });
