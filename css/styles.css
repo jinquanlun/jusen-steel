@@ -59,7 +59,7 @@ body {
 /* 主页横幅 */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/new-hero-bg.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -140,11 +140,11 @@ body {
 }
 
 .product-image.galvanized {
-    background-image: url('../images/galvanized.jpg');
+    background-image: url('../images/new-galvanized.jpg');
 }
 
 .product-image.color-coated {
-    background-image: url('../images/color-coated.jpg');
+    background-image: url('../images/new-color-coated.jpg');
 }
 
 .features {
