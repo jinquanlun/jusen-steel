@@ -76,17 +76,17 @@ body {
 
 /* 首页样式 */
 .hero {
-    height: 100vh;
-    background-image: linear-gradient(rgba(18, 24, 27, 0.8), rgba(18, 24, 27, 0.8)), url('../images/hero-bg.png');
-    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.png');
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
     position: relative;
+    padding: 8rem 2rem;
 }
 
 .hero-content {
@@ -1026,12 +1026,13 @@ footer {
 
     /* Hero 部分适配 */
     .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.png') !important;
+        background-attachment: scroll !important; /* 移动端使用scroll而不是fixed */
+        background-position: center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        min-height: 100vh;
         padding: 6rem 1rem 4rem;
-        min-height: auto;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
-        background-position: center;
-        background-size: cover;
-        background-attachment: scroll;
     }
 
     .hero-content {
