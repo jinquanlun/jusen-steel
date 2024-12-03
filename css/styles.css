@@ -59,9 +59,9 @@ body {
 /* 主页横幅 */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.png');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.png');
+    background-size: 150% auto;
+    background-position: top center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,14 +137,22 @@ body {
     background-position: center;
     border-radius: 10px;
     margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .product-image.galvanized {
     background-image: url('../images/IMG_0354.JPG');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f8f8f8;
 }
 
 .product-image.color-coated {
     background-image: url('../images/IMG_0355.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f8f8f8;
 }
 
 .features {
