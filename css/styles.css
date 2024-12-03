@@ -1168,3 +1168,123 @@ footer {
         font-size: 0.85rem;
     }
 }
+
+/* 模态框样式优化 */
+.modal-content {
+    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 2rem auto;
+    color: #fff;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-details h2 {
+    color: #D4AF37;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 1rem;
+}
+
+.product-details h3 {
+    color: #FFD700;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.product-specs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.product-specs th,
+.product-specs td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.product-specs th {
+    background: rgba(212, 175, 55, 0.1);
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.product-specs td {
+    color: #E0E0E0;
+}
+
+.product-applications,
+.product-advantages {
+    margin: 2rem 0;
+}
+
+.product-applications h3,
+.product-advantages h3 {
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+.product-applications ul,
+.product-advantages ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.product-applications li,
+.product-advantages li {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    color: #E0E0E0;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.product-applications li:hover,
+.product-advantages li:hover {
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .product-details h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .product-details h3 {
+        font-size: 1.3rem;
+    }
+
+    .product-specs th,
+    .product-specs td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .product-applications li,
+    .product-advantages li {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
