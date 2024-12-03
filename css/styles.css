@@ -74,49 +74,146 @@ body {
     color: #007AFF;
 }
 
-/* 主页横幅 */
+/* 首页样式 */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.png');
-    background-size: 150% auto;
-    background-position: top center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    position: relative;
 }
 
 .hero-content {
+    max-width: 800px;
     padding: 2rem;
+    z-index: 1;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: #007AFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
+/* 公司名称动画 */
+.company-name {
+    font-size: 4.5rem;
     font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.cta-button:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+.company-name .highlight {
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    animation: fadeInDown 1s ease-out;
+}
+
+.company-name .highlight:hover {
+    transform: translateY(-5px);
+    color: #007AFF;
+    text-shadow: 0 5px 15px rgba(0, 122, 255, 0.5);
+}
+
+/* 标语动画 */
+.tagline {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.text-slide {
+    display: inline-block;
+    animation: slideInFromRight 1s ease-out 0.5s both;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(120deg, #007AFF, #00C6FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* 产品介绍动画 */
+.product-intro {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-intro .fade-in {
+    animation: fadeIn 1s ease-out 1s both;
+}
+
+.product-intro .separator {
+    color: #007AFF;
+    animation: pulse 2s infinite;
+}
+
+/* 动画关键帧 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .company-name {
+        font-size: 3rem;
+    }
+    
+    .tagline {
+        font-size: 1.6rem;
+    }
+    
+    .product-intro {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+    }
 }
 
 /* 产品部分 */
