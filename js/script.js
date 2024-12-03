@@ -21,52 +21,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 产品详情模态框功能
-function openProductModal(productType) {
-    const modal = document.getElementById("productModal");
-    const allDetails = document.querySelectorAll('.product-details');
-    
-    // 隐藏所有产品详情
-    allDetails.forEach(detail => {
-        detail.style.display = 'none';
+// 产品详情模态框
+const productCards = document.querySelectorAll('.product-card');
+const modal = document.getElementById('product-modal');
+const closeBtn = document.querySelector('.close-modal');
+const modalContent = document.querySelector('.modal-content');
+
+productCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const productType = card.getAttribute('data-product-type');
+        openProductModal(productType);
     });
-    
-    // 显示选中的产品详情
-    const selectedDetail = document.getElementById(productType + "-details");
-    if (selectedDetail) {
-        selectedDetail.style.display = 'block';
+});
+
+function openProductModal(productType) {
+    const details = document.getElementById(`${productType}-details`);
+    if (details) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // 隐藏所有产品详情
+        document.querySelectorAll('.product-details').forEach(detail => {
+            detail.style.display = 'none';
+        });
+        
+        // 显示选中的产品详情
+        details.style.display = 'block';
+        
+        // 添加动画效果
+        modalContent.classList.add('modal-open');
     }
-    
-    // 显示模态框
-    modal.style.display = "block";
 }
 
 // 关闭模态框
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById("productModal");
-    const closeBtn = document.querySelector(".close-modal");
-    
-    if (closeBtn) {
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
+function closeModal() {
+    modalContent.classList.remove('modal-open');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
+
+closeBtn.addEventListener('click', closeModal);
+
+// 点击模态框外部关闭
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
     }
-    
-    // 点击模态框外部关闭
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+});
+
+// ESC键关闭模态框
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+        closeModal();
     }
-    
-    // 为所有产品卡片添加点击事件
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-        card.onclick = function() {
-            const productType = this.getAttribute('data-product-type');
-            if (productType) {
-                openProductModal(productType);
-            }
-        }
-    });
 });

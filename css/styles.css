@@ -77,7 +77,7 @@ body {
 /* 首页样式 */
 .hero {
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.png');
+    background-image: linear-gradient(rgba(18, 24, 27, 0.8), rgba(18, 24, 27, 0.8)), url('../images/hero-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -107,16 +107,22 @@ body {
 
 .company-name .highlight {
     display: inline-block;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
     animation: fadeInDown 1s ease-out;
+    background: linear-gradient(to bottom, #FFFFFF, #E0E0E0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
 }
 
 .company-name .highlight:hover {
     transform: translateY(-5px);
-    color: #007AFF;
-    text-shadow: 0 5px 15px rgba(0, 122, 255, 0.5);
+    background: linear-gradient(120deg, #D4AF37, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 /* 标语动画 */
@@ -129,11 +135,12 @@ body {
 .text-slide {
     display: inline-block;
     animation: slideInFromRight 1s ease-out 0.5s both;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(120deg, #007AFF, #00C6FF);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(120deg, #D4AF37, #FFD700);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 /* 产品介绍动画 */
@@ -145,95 +152,83 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    color: #E0E0E0;
 }
 
 .product-intro .fade-in {
     animation: fadeIn 1s ease-out 1s both;
+    transition: all 0.3s ease;
+}
+
+.product-intro .fade-in:hover {
+    color: #FFD700;
 }
 
 .product-intro .separator {
-    color: #007AFF;
+    color: #D4AF37;
     animation: pulse 2s infinite;
+    font-size: 1.2rem;
 }
 
-/* 动画关键帧 */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* CTA按钮样式 */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(120deg, #D4AF37, #FFD700);
+    color: #12181B;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-    .company-name {
-        font-size: 3rem;
-    }
-    
-    .tagline {
-        font-size: 1.6rem;
-    }
-    
-    .product-intro {
-        font-size: 1.2rem;
-        flex-wrap: wrap;
-    }
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(120deg, #FFD700, #D4AF37);
 }
 
 /* 产品部分 */
 .products {
     padding: 5rem 2rem;
-    background: #f5f5f7;
+    background: #f8f9fa;
 }
 
 .products h2 {
     text-align: center;
-    margin-bottom: 3rem;
     font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #12181B;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.products h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(120deg, #D4AF37, #FFD700);
+    border-radius: 2px;
 }
 
 .product-grid {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .product-card {
@@ -245,6 +240,7 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .product-card:hover {
@@ -252,29 +248,14 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.product-card h3 {
-    font-size: 1.8rem;
-    margin: 1.5rem 0;
-    color: #333;
-}
-
-.product-card p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
 .product-image {
     height: 300px;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     border-radius: 15px;
-    margin-bottom: 1.5rem;
+    margin: -2rem -2rem 1.5rem -2rem;
     position: relative;
     overflow: hidden;
-    background-color: #f8f8f8;
-    transition: all 0.3s ease;
 }
 
 .product-image::before {
@@ -284,7 +265,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(to bottom, rgba(18, 24, 27, 0.2), rgba(18, 24, 27, 0.4));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -295,16 +276,27 @@ body {
 
 .product-image.galvanized {
     background-image: url('../images/IMG_0354.JPG');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #f8f8f8;
 }
 
 .product-image.color-coated {
     background-image: url('../images/IMG_0355.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #f8f8f8;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    color: #12181B;
+    transition: color 0.3s ease;
+}
+
+.product-card:hover h3 {
+    color: #D4AF37;
+}
+
+.product-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .features {
@@ -315,23 +307,62 @@ body {
 
 .features li {
     margin: 0.8rem 0;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
     background: #f8f9fa;
     border-radius: 8px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
+    color: #12181B;
 }
 
 .features li:hover {
-    background: #e9ecef;
+    background: #f0f0f0;
     transform: translateX(5px);
 }
 
 .features i {
-    color: #007AFF;
-    margin-right: 0.8rem;
+    color: #D4AF37;
+    margin-right: 1rem;
     font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.features li:hover i {
+    transform: scale(1.2);
+}
+
+.view-details {
+    background: linear-gradient(120deg, #D4AF37, #FFD700);
+    color: #12181B;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.view-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(120deg, #FFD700, #D4AF37);
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .product-image {
+        height: 250px;
+    }
 }
 
 /* 关于我们 */
@@ -353,48 +384,300 @@ body {
 
 /* 联系方式 */
 .contact {
-    padding: 5rem 2rem;
-    background: #f5f5f7;
-    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #12181B, #1a242b);
+    color: #fff;
 }
 
 .contact h2 {
-    margin-bottom: 3rem;
+    text-align: center;
     font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.contact-grid {
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(120deg, #D4AF37, #FFD700);
+    border-radius: 2px;
+}
+
+.contact-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    padding: 0 1rem;
 }
 
 .contact-info {
-    padding: 2rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.info-group {
+    margin-bottom: 3rem;
+}
+
+.info-group:last-child {
+    margin-bottom: 0;
+}
+
+.info-group h3 {
+    color: #D4AF37;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.info-group h3 i {
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+
+.phone-numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.phone-item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-.contact-info:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+.phone-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
 }
 
-.contact-info i {
-    font-size: 2rem;
-    color: #007AFF;
-    margin-bottom: 1rem;
+.phone-item i,
+.email i,
+address i {
+    color: #D4AF37;
+    margin-right: 1.2rem;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.phone-item:hover i,
+.email:hover i {
+    transform: scale(1.1);
+}
+
+.phone-item span,
+.email span,
+address span {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.email {
+    display: inline-flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.contact-info:hover i {
-    transform: scale(1.2);
-    color: #007AFF;
+.email:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
+}
+
+address {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-style: normal;
+    line-height: 1.6;
+    color: #fff;
+}
+
+address i {
+    margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 4rem 1rem;
+    }
+
+    .contact-info {
+        padding: 2rem;
+    }
+
+    .phone-numbers {
+        grid-template-columns: 1fr;
+    }
+
+    .phone-item,
+    .email,
+    address {
+        padding: 1rem;
+    }
+
+    .info-group h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .phone-item span,
+    .email span,
+    address span {
+        font-size: 1rem;
+    }
+}
+
+/* 联系我们部分 */
+.contact {
+    padding: 5rem 2rem;
+    background: #f8f9fa;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #12181B;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 1rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-group {
+    margin-bottom: 2rem;
+}
+
+.info-group h3 {
+    color: #12181B;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.info-group h3 i {
+    color: #D4AF37;
+    margin-right: 1rem;
+}
+
+.phone-numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.phone-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    color: #12181B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.phone-item:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.phone-item i,
+.email i,
+address i {
+    color: #D4AF37;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    color: #12181B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.email:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+address {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-style: normal;
+    line-height: 1.6;
+    color: #12181B;
+}
+
+address span {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .phone-numbers {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        padding: 3rem 1rem;
+    }
 }
 
 /* 页脚 */
@@ -574,4 +857,150 @@ footer {
     .product-specs th {
         width: 40%;
     }
+}
+
+/* 动画关键帧 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 专业定制服务相关样式 */
+.product-image.custom {
+    background: linear-gradient(135deg, #12181B, #2a363f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.service-icons i {
+    font-size: 3rem;
+    color: #D4AF37;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.product-card:hover .service-icons i {
+    transform: scale(1.1);
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+/* 服务详情样式 */
+#custom-details .product-specs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+#custom-details .product-specs th,
+#custom-details .product-specs td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+#custom-details .product-specs th {
+    width: 30%;
+    color: #666;
+    font-weight: 500;
+}
+
+#custom-details .product-applications ul,
+#custom-details .product-advantages ul {
+    list-style: none;
+    padding: 0;
+}
+
+#custom-details .product-applications li,
+#custom-details .product-advantages li {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#custom-details .product-applications li:hover,
+#custom-details .product-advantages li:hover {
+    transform: translateX(5px);
+    background: #f0f0f0;
+}
+
+#custom-details .product-applications i,
+#custom-details .product-advantages i {
+    margin-right: 1rem;
+    color: #D4AF37;
+    font-size: 1.2rem;
+}
+
+#custom-details h3 {
+    color: #12181B;
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+#custom-details h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, #D4AF37, #FFD700);
+    border-radius: 2px;
 }

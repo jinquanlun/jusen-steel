@@ -24,10 +24,23 @@
     <!-- 主页横幅 -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>钜森钢铁</h1>
-            <p>专业的钢铁卷板供应商</p>
-            <p class="subtitle">为您提供优质的镀锌板、彩涂板等钢铁产品</p>
-            <a href="#products" class="cta-button">了解更多</a>
+            <div class="company-name">
+                <span class="highlight">钜</span>
+                <span class="highlight">森</span>
+                <span class="highlight">钢</span>
+                <span class="highlight">铁</span>
+            </div>
+            <div class="tagline">
+                <span class="text-slide">专业的钢铁卷板供应商</span>
+            </div>
+            <div class="product-intro">
+                <span class="fade-in">优质镀锌板</span>
+                <span class="separator">·</span>
+                <span class="fade-in">精品彩涂板</span>
+                <span class="separator">·</span>
+                <span class="fade-in">专业定制</span>
+            </div>
+            <a href="#products" class="cta-button">探索产品</a>
         </div>
     </section>
 
@@ -35,7 +48,7 @@
     <section id="products" class="products">
         <h2>我们的产品</h2>
         <div class="product-grid">
-            <div class="product-card" data-product-type="galvanized" onclick="openProductModal('galvanized')">
+            <div class="product-card" data-product-type="galvanized">
                 <div class="product-image galvanized"></div>
                 <h3>镀锌板</h3>
                 <p>高品质镀锌钢板，具有优异的防腐性能和加工性能</p>
@@ -46,7 +59,7 @@
                 </ul>
                 <button class="view-details">查看详情</button>
             </div>
-            <div class="product-card" data-product-type="color-coated" onclick="openProductModal('color-coated')">
+            <div class="product-card" data-product-type="color-coated">
                 <div class="product-image color-coated"></div>
                 <h3>彩涂板</h3>
                 <p>多样化的彩涂钢板，满足不同装饰和防护需求</p>
@@ -54,6 +67,23 @@
                     <li><i class="fas fa-check"></i> 色彩丰富</li>
                     <li><i class="fas fa-check"></i> 耐候性强</li>
                     <li><i class="fas fa-check"></i> 美观持久</li>
+                </ul>
+                <button class="view-details">查看详情</button>
+            </div>
+            <div class="product-card" data-product-type="custom">
+                <div class="product-image custom">
+                    <div class="service-icons">
+                        <i class="fas fa-cut"></i>
+                        <i class="fas fa-cogs"></i>
+                        <i class="fas fa-tools"></i>
+                    </div>
+                </div>
+                <h3>专业定制</h3>
+                <p>提供专业的钢材加工服务，满足您的个性化需求</p>
+                <ul class="features">
+                    <li><i class="fas fa-cut"></i> 钢板分条</li>
+                    <li><i class="fas fa-ruler-combined"></i> 平板裁切</li>
+                    <li><i class="fas fa-cogs"></i> 定制加工</li>
                 </ul>
                 <button class="view-details">查看详情</button>
             </div>
@@ -71,21 +101,43 @@
     <!-- 联系方式 -->
     <section id="contact" class="contact">
         <h2>联系我们</h2>
-        <div class="contact-grid">
+        <div class="contact-container">
             <div class="contact-info">
-                <i class="fas fa-phone"></i>
-                <h3>电话</h3>
-                <p>400-XXX-XXXX</p>
-            </div>
-            <div class="contact-info">
-                <i class="fas fa-envelope"></i>
-                <h3>邮箱</h3>
-                <p>contact@jusen.com</p>
-            </div>
-            <div class="contact-info">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>地址</h3>
-                <p>上海市某某区某某路XX号</p>
+                <div class="info-group phones">
+                    <h3><i class="fas fa-phone-alt"></i> 联系电话</h3>
+                    <div class="phone-numbers">
+                        <a href="tel:13928200921" class="phone-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>139 2820 0921</span>
+                        </a>
+                        <a href="tel:13652283550" class="phone-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>136 5228 3550</span>
+                        </a>
+                        <a href="tel:13670666726" class="phone-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>136 7066 6726</span>
+                        </a>
+                        <a href="tel:15918187082" class="phone-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>159 1818 7082</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-group">
+                    <h3><i class="fas fa-envelope"></i> 电子邮箱</h3>
+                    <a href="mailto:295324985@qq.com" class="email">
+                        <i class="fab fa-qq"></i>
+                        <span>295324985@qq.com</span>
+                    </a>
+                </div>
+                <div class="info-group">
+                    <h3><i class="fas fa-map-marker-alt"></i> 公司地址</h3>
+                    <address>
+                        <i class="fas fa-building"></i>
+                        <span>佛山市顺德区乐从镇乐从社区居民委员会第二工业区十二号地之一B座东201号</span>
+                    </address>
+                </div>
             </div>
         </div>
     </section>
@@ -175,6 +227,48 @@
                         <li><i class="fas fa-sun"></i> 优异的耐候性，色彩持久鲜艳</li>
                         <li><i class="fas fa-spray-can"></i> 涂层均匀，表面光洁美观</li>
                         <li><i class="fas fa-shield-alt"></i> 良好的防腐性能，使用寿命长</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="custom-details" class="product-details">
+                <h2>专业定制服务</h2>
+                <div class="product-specs">
+                    <h3>加工能力</h3>
+                    <table>
+                        <tr>
+                            <th>分条范围</th>
+                            <td>0.12-3.0mm × 600-1500mm</td>
+                        </tr>
+                        <tr>
+                            <th>裁切范围</th>
+                            <td>0.12-3.0mm × 任意尺寸</td>
+                        </tr>
+                        <tr>
+                            <th>加工精度</th>
+                            <td>±0.2mm</td>
+                        </tr>
+                        <tr>
+                            <th>交货周期</th>
+                            <td>3-7天（视具体要求）</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="product-applications">
+                    <h3>加工服务</h3>
+                    <ul>
+                        <li><i class="fas fa-cut"></i> 钢板分条：精密分条，尺寸精准</li>
+                        <li><i class="fas fa-ruler-combined"></i> 平板裁切：按需定尺，减少浪费</li>
+                        <li><i class="fas fa-cogs"></i> 定制加工：特殊规格定制</li>
+                        <li><i class="fas fa-truck"></i> 配套服务：加工配送一体化</li>
+                    </ul>
+                </div>
+                <div class="product-advantages">
+                    <h3>服务优势</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> 快速响应，及时交付</li>
+                        <li><i class="fas fa-check-double"></i> 精准加工，品质保证</li>
+                        <li><i class="fas fa-handshake"></i> 专业团队，一对一服务</li>
+                        <li><i class="fas fa-sync"></i> 柔性生产，满足个性化需求</li>
                     </ul>
                 </div>
             </div>
